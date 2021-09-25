@@ -1,0 +1,17 @@
+{
+  "register": {
+    "title": "Registro de usuario",
+    "userName": "Nombre de usuario *",
+    "name": "Nombre *",
+    "lastName": "Apellidos *",
+    "email": "Correo electrónico *",
+    "password": "Contraseña *",
+    "repeteadPassword": "Repita la contraseña *"
+  },
+  "generic": {
+    "buttons": {
+      "back": "Volver",
+      "register": "Registrarse"
+    }
+  }
+}
