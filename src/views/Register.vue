@@ -3,7 +3,7 @@
     <form action="#" method="POST">
       <div class="md:flex md:items-center md:justify-center md:h-screen">
         <div class="shadow overflow-hidden sm:rounded-md md:w-8/12">
-          <div class="px-4 py-5 bg-vhite sm:p-6">
+          <div class="bg-white px-4 py-5 sm:p-6">
             <p class="pb-5 md:text-center">Registro de usuario</p>
             <div class="grid grid-cols-12 gap-6">
               <div class="col-span-6">
@@ -35,9 +35,12 @@
               </div>
             </div>
           </div>
-          <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+          <div class="px-4 py-3 bg-white text-right sm:px-6">
+            <button type="submit" class="inline-flex justify-center mr-2 py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+              Volver
+            </button>
             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Save
+              Registrarse
             </button>
           </div>
         </div>
