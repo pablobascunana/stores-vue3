@@ -12,7 +12,9 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.3.3",
     "autoprefixer": "^9.8.6",
+    "axios": "^0.21.4",
     "core-js": "^3.6.5",
+    "mitt": "^3.0.0",
     "postcss": "^7.0.36",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14",
     "vue": "^3.0.0",
@@ -50,7 +52,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {},
+    "rules": {
+      "no-debugger": 0
+    },
     "overrides": [
       {
         "files": [

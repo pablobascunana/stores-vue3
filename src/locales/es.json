@@ -6,7 +6,15 @@
     "lastName": "Apellidos *",
     "email": "Correo electrónico *",
     "password": "Contraseña *",
-    "repeteadPassword": "Repita la contraseña *"
+    "repeteadPassword": "Repita la contraseña *",
+    "messages": {
+      "success1": "El usuario",
+      "success2": "ha sido registrado",
+      "error": "Ha ocurrido un error al registrar al usuario",
+      "userNameError": "El nombre de usuario",
+      "emailError": "El correo electrónico",
+      "exists": "ya existe"
+    }
   },
   "generic": {
     "buttons": {
