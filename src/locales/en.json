@@ -20,6 +20,13 @@
     "buttons": {
       "back": "Back",
       "register": "Sign in"
+    },
+    "validations": {
+      "required": "This field is required",
+      "minLength": "The minimum length is",
+      "maxLength": "The maximum length is",
+      "invalidEmail": "Email is invalid",
+      "unmatchPasswords": "Passwords do not match"
     }
   }
 }

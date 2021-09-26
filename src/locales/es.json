@@ -7,6 +7,14 @@
     "email": "Correo electrónico *",
     "password": "Contraseña *",
     "repeteadPassword": "Repita la contraseña *",
+    "placeholders": {
+      "userName": "Introduzca su nombre de usuario",
+      "name": "Introduzca su nombre",
+      "lastName": "Introduzca su apellido",
+      "email": "Introduzca su correo electrónico",
+      "password": "Introduzca su contraseña",
+      "repeteadPassword": "Repita su contraseña"
+    },
     "messages": {
       "success1": "El usuario",
       "success2": "ha sido registrado",
@@ -20,6 +28,13 @@
     "buttons": {
       "back": "Volver",
       "register": "Registrarse"
+    },
+    "validations": {
+      "required": "Este campo es obligatorio",
+      "minLength": "La longitud mínima es",
+      "maxLength": "La longitud máxima es",
+      "invalidEmail": "El correo electrónico no es válido",
+      "unmatchPasswords": "Las contraseñas no coinciden"
     }
   }
 }

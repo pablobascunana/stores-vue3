@@ -15,7 +15,7 @@ import { useStore } from 'vuex';
 export default {
   name: 'App',
   components: {
-    Toast: defineAsyncComponent(() => import('@/components/Toast'))
+    Toast: defineAsyncComponent(() => import('@/components/generics/Toast'))
   },
   setup() {
     const app = getCurrentInstance();
