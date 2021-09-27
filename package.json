@@ -1,16 +1,19 @@
 {
-  "name": "vue3",
+  "name": "store-vue3-flask-sql",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:unit-debug": "node --inspect-brk node_modules/.bin/vue-cli-service test:unit --no-cache --watch --runInBand",
     "test:e2e": "vue-cli-service test:e2e",
+    "test": "jest --coverage",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.3",
+    "@testing-library/jest-dom": "^5.14.1",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.4",
     "core-js": "^3.6.5",
@@ -33,10 +36,11 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "@vue/test-utils": "^2.0.0-0",
+    "@vue/test-utils": "^2.0.0-rc.15",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
+    "jest-html-reporters": "^2.1.6",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
@@ -78,6 +82,41 @@
     "preset": "@vue/cli-plugin-unit-jest",
     "transform": {
       "^.+\\.vue$": "vue-jest"
-    }
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "globals": {
+      "vue-jest": {
+        "transform": {
+          "i18n": "vue-i18n-jest"
+        },
+        "testEnvironment": "node"
+      }
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,vue}"
+    ],
+    "coverageDirectory": "./tests/unit/coverage",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "pageTitle": "Store unit test reports",
+          "hideIcon": true,
+          "publicPath": "./tests/unit/html-reports",
+          "filename": "store-unit-test-reporters.html",
+          "expand": true,
+          "openReport": true
+        }
+      ]
+    ]
   }
 }

@@ -2,6 +2,7 @@
   <div class="bg-indigo-100">
     <router-view/>
     <Toast
+      data-testid="toast"
       :message="message"
       :color="color"
       v-if="store.state.showToast"
@@ -10,9 +11,9 @@
 </template>
 
 <script>
+import { emitter } from "@/helpers/emitter";
 import { defineAsyncComponent, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
-import { emitter } from '@/helpers/emitter';
 export default {
   name: 'App',
   components: {
@@ -34,7 +35,7 @@ export default {
     onMounted(loadToastEvents);
     
     return { 
-      color, 
+      color,
       message,
       store
     }

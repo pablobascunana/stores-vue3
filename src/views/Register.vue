@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Form @submit.prevent="register" :validation-schema="schema">
+    <Form @submit="register" :validation-schema="schema">
       <div class="flex items-center justify-center h-screen">
         <div class="shadow overflow-hidden rounded md:w-8/12">
           <div class="bg-white px-4 py-5 sm:p-6">
@@ -114,31 +114,45 @@ export default {
     }
 
     async function register(user) {
-      debugger
       try {
-        await UserApi.register(user.value);
-        toast.message = `${t('register.messages.success1')} ${user.value.userName} ${t('register.messages.success2')}`
-        emitter.emit('show-toast', toast);
-        router.back();
+        await UserApi.register(user);
+        prepareSuccessToast(user);
       } catch (error) {
-        toast.message = checkError(error.response.data);
-        toast.color = 'bg-red-500';
-        emitter.emit('show-toast', toast);
+        toast.message = checkError(error, user);
+        prepareErrorToast(user);
       }
     }
 
-    function checkError(errorMessage) {
-      if (errorMessage.includes('userName')) {
-        return `${t('register.messages.userNameError')} ${user.value.userName} ${t('register.messages.exists')}`;
-      } else if (errorMessage.includes('email')) {
-        return `${t('register.messages.emailError')} ${user.value.email} ${t('register.messages.exists')}`;
+    function prepareSuccessToast(user) {
+      toast.message = `${t('register.messages.success1')} ${user.userName} ${t('register.messages.success2')}`
+      showToast();
+      router.back();
+    }
+
+    function prepareErrorToast(user) {
+      toast.message = `${t('register.messages.success1')} ${user.userName} ${t('register.messages.success2')}`
+      toast.color = 'bg-red-500';
+      showToast();
+    }
+
+    function showToast() {
+      emitter.emit('show-toast', toast);
+    }
+
+    function checkError({ response }, user) {
+      if (response && response.data.includes('userName')) {
+        return `${t('register.messages.userNameError')} ${user.userName} ${t('register.messages.exists')}`;
+      } else if (response && response.data.includes('email')) {
+        return `${t('register.messages.emailError')} ${user.email} ${t('register.messages.exists')}`;
       }
-      return `${t('register.messages.error')} ${user.value.userName}`;      
+      return `${t('register.messages.error')} ${user.userName}`;      
     }
 
     return {
       back,
+      checkError,
       register,
+      prepareSuccessToast,
       schema,
       user,
     }
