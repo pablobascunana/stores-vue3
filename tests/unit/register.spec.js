@@ -1,5 +1,7 @@
 import { mount } from '@vue/test-utils';
-import { i18n, store, router } from './plugins';
+import router from '@/router/index';
+import store from '@/store/index';
+import { i18n } from './plugins';
 
 import Register from '@/views/Register.vue';
 
@@ -29,7 +31,6 @@ describe('Register.vue', () => {
   });
 
   it('Call register button', async () => {
-    console.log(wrapper.vm);
     await wrapper.vm.register(user);
   });
 

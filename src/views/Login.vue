@@ -81,16 +81,20 @@ export default {
       if (user.userName && user.password) {
         try {
           let { data } = await UserApi.login(user);
-          store.commit('setAccessToken', data.access_token);
-          store.commit('setRefreshToken', data.refresh_token);
-          store.commit('isLogin', false);
-          store.commit('setUserByToken', data.access_token);
-          store.commit('setUserName', user.userName);
-          router.push({ name: '' });
+          saveDataInVuexAndGoToStore(data, user);
         } catch (error) {
           prepareErrorToast();
         }
       }
+    }
+
+    function saveDataInVuexAndGoToStore({ access_token, refresh_token }, { userName }) {
+      store.commit('setAccessToken', access_token);
+      store.commit('setRefreshToken', refresh_token);
+      store.commit('isLogin', false);
+      store.commit('setUserByToken', access_token);
+      store.commit('setUserName', userName);
+      router.push({ name: '' });
     }
 
     function prepareErrorToast() {
@@ -100,7 +104,8 @@ export default {
     }
 
     return {
-      login
+      login,
+      saveDataInVuexAndGoToStore
     }
   },
 }

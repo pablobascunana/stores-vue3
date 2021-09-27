@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { store } from './plugins';
+import store from '@/store/index';
 
 import App from '@/App.vue';
 
