@@ -45,5 +45,5 @@ export default {
 
 <style>
 @import './index.css';
-@import './components/generics/TextInput.css';
+@import './components/generics/FormTextInput.css';
 </style>

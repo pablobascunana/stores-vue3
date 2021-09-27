@@ -75,10 +75,9 @@
 <script>
 import * as Yup from "yup";
 import { emitter } from '@/helpers/emitter';
-import { ref } from 'vue';
 import { Form } from "vee-validate";
 import router from "@/router";
-import TextInput from "@/components/generics/TextInput.vue";
+import TextInput from "@/components/generics/FormTextInput.vue";
 import { useI18n } from "vue-i18n";
 import UserApi from '@/api/user';
 
@@ -89,7 +88,6 @@ export default {
     TextInput
   },
   setup() {
-    const user = ref({});
     const { t } = useI18n();
     const toast = {};
 
@@ -153,8 +151,7 @@ export default {
       checkError,
       register,
       prepareSuccessToast,
-      schema,
-      user,
+      schema
     }
   }
 }

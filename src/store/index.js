@@ -1,7 +1,11 @@
 import { createStore } from 'vuex'
+import user from '@/store/modules/user.js'
 
 export default createStore({
   state: {
+    accessToken: '',
+    isLogin: '',
+    refreshToken: '',
     showToast: false
   },
   mutations: {
@@ -12,5 +16,6 @@ export default createStore({
   actions: {
   },
   modules: {
+    user
   }
-})
+});

@@ -24,30 +24,12 @@ import { useField } from "vee-validate";
 
 export default {
   props: {
-    type: {
-      type: String,
-      default: "text",
-    },
-    value: {
-      type: String,
-      default: "",
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
-    placeholder: {
-      type: String,
-      default: "",
-    },
-    autocomplete: {
-      type: String,
-      default: "off",
-    },
+    type: { type: String, default: "text" },
+    value: { type: String, default: "" },
+    name: { type: String, required: true },
+    label: { type: String, required: true },
+    placeholder: { type: String, default: "" },
+    autocomplete: { type: String, default: "off" }
   },
   setup(props) {
     // we don't provide any rules here because we are using form-level validation

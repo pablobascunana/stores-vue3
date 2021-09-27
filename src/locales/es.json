@@ -1,4 +1,15 @@
 {
+  "login": {
+    "signInMessage": "Inicia sesión en tu cuenta",
+    "or": "O",
+    "signUpMessage": "Regístrate",
+    "userName": "Nombre de usuario",
+    "password": "Contraseña",
+
+    "messages": {
+      "error": "Credenciales incorrectas"
+    }
+  },
   "register": {
     "title": "Registro de usuario",
     "userName": "Nombre de usuario *",
@@ -26,6 +37,7 @@
   },
   "generic": {
     "buttons": {
+      "access": "Acceder",
       "back": "Volver",
       "register": "Registrarse"
     },

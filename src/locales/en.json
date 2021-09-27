@@ -1,4 +1,14 @@
 {
+  "login": {
+    "signInMessage": "Sign in to your account",
+    "or": "Of",
+    "signUpMessage": "Sign up",
+    "userName": "Username",
+    "password": "Password",
+    "messages": {
+      "error": "Invalid credentials"
+    }
+  },
   "register": {
     "title": "Sign in",
     "userName": "Username *",
@@ -18,8 +28,9 @@
   },
   "generic": {
     "buttons": {
+      "access": "Sign in",
       "back": "Back",
-      "register": "Sign in"
+      "register": "Sign up"
     },
     "validations": {
       "required": "This field is required",
