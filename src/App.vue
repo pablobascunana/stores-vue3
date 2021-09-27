@@ -10,16 +10,15 @@
 </template>
 
 <script>
-import { defineAsyncComponent, getCurrentInstance, onMounted, ref } from 'vue';
+import { defineAsyncComponent, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
+import { emitter } from '@/helpers/emitter';
 export default {
   name: 'App',
   components: {
     Toast: defineAsyncComponent(() => import('@/components/generics/Toast'))
   },
   setup() {
-    const app = getCurrentInstance();
-    const emitter = app.appContext.config.globalProperties.$emitter;
     const store = useStore();
     const message = ref('');
     const color = ref('');
@@ -43,6 +42,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
+<style>
+@import './index.css';
+@import './components/generics/TextInput.css';
 </style>

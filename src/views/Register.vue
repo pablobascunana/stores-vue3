@@ -74,7 +74,8 @@
 
 <script>
 import * as Yup from "yup";
-import { getCurrentInstance, ref } from 'vue';
+import { emitter } from '@/helpers/emitter';
+import { ref } from 'vue';
 import { Form } from "vee-validate";
 import router from "@/router";
 import TextInput from "@/components/generics/TextInput.vue";
@@ -88,8 +89,6 @@ export default {
     TextInput
   },
   setup() {
-    const app = getCurrentInstance();
-    const emitter = app.appContext.config.globalProperties.$emitter;
     const user = ref({});
     const { t } = useI18n();
     const toast = {};
@@ -111,7 +110,6 @@ export default {
     });
 
     function back() {
-      debugger
       router.back();
     }
 
