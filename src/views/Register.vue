@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Form @submit="register" :validation-schema="schema">
+    <Form @submit="register" :validation-schema="registerSchema">
       <div class="flex items-center justify-center h-screen">
         <div class="shadow overflow-hidden rounded md:w-8/12">
           <div class="bg-white px-4 py-5 sm:p-6">
@@ -62,7 +62,7 @@
             <button class="btn-secondary" @click="back">
               {{ $t('generic.buttons.back') }}
             </button>
-            <button class="btn-primary">
+            <button type="submit" class="btn-primary">
               {{ $t('generic.buttons.register') }}
             </button>
           </div>
@@ -73,10 +73,10 @@
 </template>
 
 <script>
-import * as Yup from "yup";
 import { emitter } from '@/helpers/emitter';
 import { Form } from "vee-validate";
 import router from "@/router";
+import { registerSchema } from "@/helpers/validations";
 import TextInput from "@/components/generics/FormTextInput.vue";
 import { useI18n } from "vue-i18n";
 import UserApi from '@/api/user';
@@ -91,27 +91,12 @@ export default {
     const { t } = useI18n();
     const toast = {};
 
-    const MIN_LENGTH_VALUE = 6;
-    const MAX_LENGTH_VALUE = 45;
-    const MIN_MSG = `${t('generic.validations.minLength')} ${MIN_LENGTH_VALUE}`;
-    const MAX_MSG = `${t('generic.validations.maxLength')} ${MAX_LENGTH_VALUE}`;
-    const REQUIRED = t('generic.validations.required');
-
-    const schema = Yup.object().shape({
-      userName: Yup.string().min(MIN_LENGTH_VALUE, MIN_MSG).max(MAX_LENGTH_VALUE, MAX_MSG).required(REQUIRED),
-      name: Yup.string().min(MIN_LENGTH_VALUE, MIN_MSG).max(MAX_LENGTH_VALUE, MAX_MSG).required(REQUIRED),
-      lastName: Yup.string().min(MIN_LENGTH_VALUE, MIN_MSG).max(MAX_LENGTH_VALUE, MAX_MSG).required(REQUIRED),
-      email: Yup.string().min(MIN_LENGTH_VALUE, MIN_MSG).email(t('generic.validations.invalidEmail')).required(REQUIRED),
-      password: Yup.string().min(MIN_LENGTH_VALUE, MIN_MSG).required(REQUIRED),
-      repeteadPassword: Yup.string().min(MIN_LENGTH_VALUE, MIN_MSG).required(REQUIRED)
-        .oneOf([Yup.ref("password")], t('generic.validations.unmatchPasswords')),
-    });
-
     function back() {
       router.back();
     }
 
     async function register(user) {
+      debugger
       try {
         await UserApi.register(user);
         prepareSuccessToast(user);
@@ -151,7 +136,7 @@ export default {
       checkError,
       register,
       prepareSuccessToast,
-      schema
+      registerSchema
     }
   }
 }

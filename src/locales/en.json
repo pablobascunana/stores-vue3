@@ -26,16 +26,42 @@
       "exists": "already exists"
     }
   },
+  "stores": {
+    "search": "Search",
+    "nameHeader": "Name",
+    "phoneHeader": "Phone",
+    "emailHeader": "Email",
+    "cifHeader": "CIF",
+    "actionsHeader": "Actions",
+    "addStore": "Add store",
+    "messages": {
+      "error": "An error occurred while obtaining the list of stores. Please, try again."
+    }
+  },
+  "addStore": {
+    "title": "Complete the following information to add a new store",
+    "phone": "Phone *",
+    "cif": "CIF *",
+    "placeholders": {
+      "name": "Enter the name of the store",
+      "email": "Enter the email of the store",
+      "phone": "Enter the phone of the store",
+      "cif": "Enter the CIF of the store"
+    }
+  },
   "generic": {
     "buttons": {
+      "add": "Add",
       "access": "Sign in",
       "back": "Back",
+      "close": "Close",
       "register": "Sign up"
     },
     "validations": {
       "required": "This field is required",
       "minLength": "The minimum length is",
       "maxLength": "The maximum length is",
+      "invalidCif": "Invalid CIF",
       "invalidEmail": "Email is invalid",
       "unmatchPasswords": "Passwords do not match"
     }

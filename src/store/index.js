@@ -6,9 +6,13 @@ export default createStore({
     accessToken: '',
     login: '',
     refreshToken: '',
+    showAddStoreModal: false,
     showToast: false
   },
   mutations: {
+    setShowAddStoreModal(state, visible) {
+      state.showAddStoreModal = visible;
+    },
     setShowToast(state, visible) {
       state.showToast = visible;
     },

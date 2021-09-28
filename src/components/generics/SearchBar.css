@@ -1,0 +1,5 @@
+@layer components {
+  .form-input-search {
+    @apply w-full pl-10 pr-4 py-2 rounded-lg shadow text-gray-600 font-medium focus:ring-indigo-500 focus:border-indigo-500 block
+  }
+}

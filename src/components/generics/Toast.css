@@ -1,6 +1,6 @@
 @layer components {
   .toast-position {
-    @apply fixed md:top-0 bottom-0 right-0 md:m-8 m-8 mb-12
+    @apply fixed md:top-0 bottom-0 right-0 md:m-8 m-8 mb-12 z-50
   }
   .toast {
     @apply cursor-pointer flex justify-between p-3 md:h-12 h-24 rounded text-white

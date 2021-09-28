@@ -94,7 +94,7 @@ export default {
       store.commit('isLogin', false);
       store.commit('setUserByToken', access_token);
       store.commit('setUserName', userName);
-      router.push({ name: '' });
+      router.push({ name: 'stores' });
     }
 
     function prepareErrorToast() {
