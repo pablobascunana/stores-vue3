@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import router from '@/router/index';
 import store from '@/store/index';
 import i18n from '@/i18n';
+import { utils } from "@/helpers/commons";
 
 import Register from '@/views/Register';
 
@@ -35,7 +36,7 @@ describe('Register.vue', () => {
   });
 
   it('Call prepare success toast', async () => {
-    await wrapper.vm.prepareSuccessToast(user);
+    await utils.prepareToastAndShowIt('Toast message', 'bg-green-500');
     expect(store.state.showToast).toBe(false);
   });
 

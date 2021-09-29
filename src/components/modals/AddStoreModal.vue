@@ -50,12 +50,12 @@
 </template>
 <script>
 import { addStoreSchema } from "@/helpers/validations";
-import { emitter } from '@/helpers/emitter';
 import { Form } from "vee-validate";
 import StoresApi from "@/api/stores";
 import TextInput from "@/components/generics/FormTextInput.vue";
 import { useStore } from 'vuex';
 import { useI18n } from "vue-i18n";
+import { utils } from "@/helpers/commons";
 
 export default {
   name: "AddStore",
@@ -67,7 +67,6 @@ export default {
   setup(props, { emit }) {
     const store = useStore();
     const { t } = useI18n();
-    const toast = {};
 
     function close() {
       store.commit('setShowAddStoreModal', false);
@@ -80,14 +79,8 @@ export default {
         emit('updateStoreList', data);
         close();
       } catch(error) {
-        prepareErrorToast();
+        utils.prepareToastAndShowIt(`${t('stores.messages.error')}`);
       }
-    }
-
-    function prepareErrorToast() {
-      toast.message = `${t('stores.messages.error')}`
-      toast.color = 'bg-red-500';
-      emitter.emit('show-toast', toast);
     }
 
     return {

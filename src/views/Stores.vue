@@ -70,13 +70,13 @@
 </template>
 <script>
 import AddStoreModal from "@/components/modals/AddStoreModal";
-import { emitter } from '@/helpers/emitter';
 import { computed, onMounted, ref } from 'vue';
 import DeleteStoreModal from "@/components/modals/DeleteStoreModal";
 import SearchBar from '@/components/generics/SearchBar';
 import StoresApi from "@/api/stores";
 import { useStore } from 'vuex';
 import { useI18n } from "vue-i18n";
+import { utils } from "@/helpers/commons";
 
 export default {
   name: "Stores",
@@ -88,7 +88,6 @@ export default {
   setup() {
     const store = useStore();
     const { t } = useI18n();
-    const toast = {};
 
     const tableHeader = [
       { id: 0, appearance: "pl-14", name: t('stores.nameHeader') },
@@ -117,14 +116,8 @@ export default {
         let { data } = await StoresApi.stores(store.state.user.userUuid);
         tableBody.value = data;
       } catch (error) {
-        prepareErrorToast();
+        utils.prepareToastAndShowIt(`${t('stores.messages.error')}`);
       }
-    }
-
-    function prepareErrorToast() {
-      toast.message = `${t('stores.messages.error')}`
-      toast.color = 'bg-red-500';
-      emitter.emit('show-toast', toast);
     }
 
     function doStoresFilter(store, search) {
@@ -160,7 +153,6 @@ export default {
       deleteStore,
       getStores,
       goToStore,
-      prepareErrorToast,
       search,
       storeList,
       storeToDelete,

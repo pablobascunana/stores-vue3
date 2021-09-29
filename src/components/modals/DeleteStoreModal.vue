@@ -13,10 +13,11 @@
   </div>
 </template>
 <script>
-import { emitter } from '@/helpers/emitter';
 import StoresApi from "@/api/stores";
 import { useI18n } from "vue-i18n";
 import { useStore } from 'vuex';
+import { utils } from "@/helpers/commons";
+
 export default {
   name: "AddStore",
   props: {
@@ -26,7 +27,6 @@ export default {
   setup(props, { emit }) {
     const store = useStore();
     const { t } = useI18n();
-    const toast = {};
 
     function close() {
       store.commit('setShowDeleteStoreModal', false);
@@ -38,14 +38,8 @@ export default {
         emit('updateStoreList', props.storeToDelete);
         close();
       } catch(error) {
-        prepareErrorToast();
+        utils.prepareToastAndShowIt(`${t('deleteStore.messages.error')}`);
       }
-    }
-
-    function prepareErrorToast() {
-      toast.message = `${t('deleteStore.messages.error')}`
-      toast.color = 'bg-red-500';
-      emitter.emit('show-toast', toast);
     }
 
     return {

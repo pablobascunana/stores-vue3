@@ -2,6 +2,8 @@ import { shallowMount } from '@vue/test-utils';
 import store from '@/store/index';
 import i18n from '@/i18n';
 
+import { utils } from "@/helpers/commons";
+
 import Stores from '@/views/Stores';
 import AddStoreModal from '@/components/modals/AddStoreModal';
 import DeleteStoreModal from '@/components/modals/DeleteStoreModal';
@@ -59,7 +61,7 @@ describe('Stores.vue', () => {
   });
 
   it('Call prepare error toast', async () => {
-    await wrapper.vm.prepareErrorToast();
+    await utils.prepareToastAndShowIt('Toast message');
     expect(store.state.showToast).toBe(false);
   });
 

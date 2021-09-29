@@ -58,13 +58,13 @@
 </template>
 
 <script>
-import { emitter } from '@/helpers/emitter';
 import LoginInput from "@/components/generics/LoginInput";
 import { Form } from "vee-validate";
 import router from "@/router";
 import { useI18n } from "vue-i18n";
 import UserApi from '@/api/user';
 import { useStore } from 'vuex';
+import { utils } from "@/helpers/commons";
 
 export default {
   name: "Login",
@@ -75,7 +75,6 @@ export default {
   setup() {
     const store = useStore();
     const { t } = useI18n();
-    const toast = {};
 
     async function login(user) {
       if (user.userName && user.password) {
@@ -83,7 +82,7 @@ export default {
           let { data } = await UserApi.login(user);
           saveDataInVuexAndGoToStore(data, user);
         } catch (error) {
-          prepareErrorToast();
+          utils.prepareToastAndShowIt(`${t('login.messages.error')}`);
         }
       }
     }
@@ -95,12 +94,6 @@ export default {
       store.commit('setUserByToken', access_token);
       store.commit('setUserName', userName);
       router.push({ name: 'stores' });
-    }
-
-    function prepareErrorToast() {
-      toast.message = `${t('login.messages.error')}`
-      toast.color = 'bg-red-500';
-      emitter.emit('show-toast', toast);
     }
 
     return {

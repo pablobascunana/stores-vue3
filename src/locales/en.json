@@ -19,7 +19,7 @@
     "repeteadPassword": "Repeat password *",
     "messages": {
       "success1": "The user",
-      "success2": "has been registered",
+      "success2": "already exists",
       "error": "An error occurred while registering the user",
       "userNameError": "The username",
       "emailError": "The email",

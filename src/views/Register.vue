@@ -73,13 +73,13 @@
 </template>
 
 <script>
-import { emitter } from '@/helpers/emitter';
 import { Form } from "vee-validate";
 import router from "@/router";
 import { registerSchema } from "@/helpers/validations";
 import TextInput from "@/components/generics/FormTextInput.vue";
 import { useI18n } from "vue-i18n";
 import UserApi from '@/api/user';
+import { utils } from "@/helpers/commons";
 
 export default {
   name: 'Register',
@@ -89,7 +89,6 @@ export default {
   },
   setup() {
     const { t } = useI18n();
-    const toast = {};
 
     function back() {
       router.back();
@@ -98,27 +97,14 @@ export default {
     async function register(user) {
       try {
         await UserApi.register(user);
-        prepareSuccessToast(user);
+        utils.prepareToastAndShowIt(
+          `${t('register.messages.success1')} ${user.userName} ${t('register.messages.success2')}`,
+          'bg-green-500'
+        );
+        back();
       } catch (error) {
-        toast.message = checkError(error, user);
-        prepareErrorToast(user);
+        utils.prepareToastAndShowIt(checkError(error, user));
       }
-    }
-
-    function prepareSuccessToast(user) {
-      toast.message = `${t('register.messages.success1')} ${user.userName} ${t('register.messages.success2')}`
-      showToast();
-      router.back();
-    }
-
-    function prepareErrorToast(user) {
-      toast.message = `${t('register.messages.success1')} ${user.userName} ${t('register.messages.success2')}`
-      toast.color = 'bg-red-500';
-      showToast();
-    }
-
-    function showToast() {
-      emitter.emit('show-toast', toast);
     }
 
     function checkError({ response }, user) {
@@ -134,7 +120,6 @@ export default {
       back,
       checkError,
       register,
-      prepareSuccessToast,
       registerSchema
     }
   }
