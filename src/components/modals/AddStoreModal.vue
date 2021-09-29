@@ -1,7 +1,7 @@
 <template>
   <div v-if="store.state.showAddStoreModal">
     <div class="modal">
-      <div class="modal-bg">
+      <div class="modal-lg-bg">
         <h3 class="text-center mb-10 text-xl text-gray-900">{{ $t('addStore.title') }}</h3>
         <Form @submit="addStore" :validation-schema="addStoreSchema">
           <div class="grid grid-cols-12 gap-6">
@@ -44,7 +44,7 @@
             <button class="btn-primary">{{ $t('generic.buttons.add') }}</button>
           </div>
         </Form>
-        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -76,7 +76,7 @@ export default {
     async function addStore(storeValue) {
       storeValue.userUuid = store.state.user.userUuid
       try {
-        let { data } = await StoresApi.addStore(storeValue);
+        let { data } = await StoresApi.add(storeValue);
         emit('updateStoreList', data);
         close();
       } catch(error) {
@@ -101,5 +101,5 @@ export default {
 </script>
 
 <style>
-@import './AddStoreModal.css';
+@import './StoreModals.css';
 </style>

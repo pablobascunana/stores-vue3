@@ -96,7 +96,6 @@ export default {
     }
 
     async function register(user) {
-      debugger
       try {
         await UserApi.register(user);
         prepareSuccessToast(user);

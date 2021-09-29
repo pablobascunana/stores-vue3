@@ -49,12 +49,20 @@
       "cif": "Enter the CIF of the store"
     }
   },
+  "deleteStore" : {
+    "title": "Delete store",
+    "message": "Are you sure you want to delete the store",
+    "messages": {
+      "error": "An error occurred while deleting of stores. Please, try again."
+    }
+  },
   "generic": {
     "buttons": {
       "add": "Add",
       "access": "Sign in",
       "back": "Back",
       "close": "Close",
+      "delete": "Delete",
       "register": "Sign up"
     },
     "validations": {

@@ -7,11 +7,15 @@ export default createStore({
     login: '',
     refreshToken: '',
     showAddStoreModal: false,
+    showDeleteStoreModal: false,
     showToast: false
   },
   mutations: {
     setShowAddStoreModal(state, visible) {
       state.showAddStoreModal = visible;
+    },
+    setShowDeleteStoreModal(state, visible) {
+      state.showDeleteStoreModal = visible;
     },
     setShowToast(state, visible) {
       state.showToast = visible;

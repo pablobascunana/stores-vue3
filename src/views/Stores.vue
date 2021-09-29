@@ -26,11 +26,11 @@
             </tr>
           </thead>
           <tbody>
-            <slot v-for="tableRow in storeList" :key="tableRow.cif">
+            <slot v-for="(tableRow, index) in storeList" :key="index">
               <tr class="bg-white shadow rounded-lg">
                 <td class="p-3">
                   <div class="flex align-items-center">
-                    <img class="rounded-full h-12 w-12  object-cover" src="https://picsum.photos/200" alt="unsplash image">
+                    <img class="rounded-full h-12 w-12  object-cover" :src="`https://picsum.photos/id/${index}/200`" alt="unsplash image">
                     <div class="ml-3">
                       <div class="p-3 text-gray-600">{{ tableRow.name }}</div>
                     </div>
@@ -46,7 +46,7 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
                   </a>
-                  <a href="#" class="text-red-600 hover:text-red-500  ml-2" @click="deleteStore">
+                  <a href="#" class="text-red-600 hover:text-red-500  ml-2" @click="deleteStore(index)">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
@@ -58,13 +58,20 @@
         </table>
       </div>
     </div>
-    <AddStoreModal @updateStoreList="updateStoreList" />
+    <AddStoreModal
+      @updateStoreList="updateStoreList"
+    />
+    <DeleteStoreModal
+      :storeToDelete="storeToDelete"
+      @updateStoreList="updateStoreList"
+    />
   </div>
 </template>
 <script>
 import AddStoreModal from "@/components/modals/AddStoreModal";
 import { emitter } from '@/helpers/emitter';
 import { computed, onMounted, ref } from 'vue';
+import DeleteStoreModal from "@/components/modals/DeleteStoreModal";
 import SearchBar from '@/components/generics/SearchBar';
 import StoresApi from "@/api/stores";
 import { useStore } from 'vuex';
@@ -74,6 +81,7 @@ export default {
   name: "Stores",
   components: {
     AddStoreModal,
+    DeleteStoreModal,
     SearchBar
   },
   setup() {
@@ -90,6 +98,8 @@ export default {
     ]
     const tableBody = ref([]);
     const search = ref('');
+    const storeToDelete = ref({});
+    const indexStoreToDelete = ref(-1);
 
     const storeList = computed(() => {
       return tableBody.value.filter((row) => {
@@ -131,12 +141,15 @@ export default {
       alert('store details')
     }
 
-    function deleteStore() {
-      alert('delete store')
+    function deleteStore(index) {
+      indexStoreToDelete.value = index;
+      storeToDelete.value = storeList.value[index];
+      store.commit('setShowDeleteStoreModal', true);
     }
 
     function updateStoreList(store) {
-      tableBody.value.push(store);
+      indexStoreToDelete.value === - 1 ? tableBody.value.push(store) : tableBody.value.splice(indexStoreToDelete, 1);
+      indexStoreToDelete.value = -1
     }
 
     onMounted(getStores);
@@ -147,6 +160,7 @@ export default {
       goToStore,
       search,
       storeList,
+      storeToDelete,
       tableBody,
       tableHeader,
       updateSearch,

@@ -57,12 +57,20 @@
       "cif": "Introduzca el CIF de la tienda"
     }
   },
+  "deleteStore" : {
+    "title": "Eliminar tienda",
+    "message": "¿Está seguro que desea eliminar la tienda",
+    "messages": {
+      "error": "Ha ocurrido un error al eliminar la tienda. Por favor, inténtelo de nuevo."
+    }
+  },
   "generic": {
     "buttons": {
       "access": "Acceder",
       "add": "Añadir",
       "back": "Volver",
       "close": "Cerrar",
+      "delete": "Eliminar",
       "register": "Registrarse"
     },
     "validations": {
