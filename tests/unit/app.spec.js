@@ -1,12 +1,11 @@
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import store from '@/store/index';
 
-import App from '@/App.vue';
-
+import App from '@/App';
 
 describe('App.vue', () => {
   beforeEach(() => {
-    mount(App, {
+    shallowMount(App, {
       global: {
         plugins: [store]
       }

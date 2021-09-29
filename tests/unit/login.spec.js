@@ -1,9 +1,9 @@
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import router from '@/router/index';
 import store from '@/store/index';
 import i18n from '@/i18n';
 
-import Login from '@/views/Login.vue';
+import Login from '@/views/Login';
 
 const user = {
   userName: "test",
@@ -20,7 +20,7 @@ const userUuid = 'cfc7b429-c359-41fa-ab59-a3f8a9ba25c2';
 describe('Login.vue', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(Login, {
+    wrapper = shallowMount(Login, {
       global: {
         plugins: [i18n, store, router]
       }

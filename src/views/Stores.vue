@@ -149,7 +149,7 @@ export default {
     }
 
     function updateStoreList(store) {
-      indexStoreToDelete.value === - 1 ? tableBody.value.push(store) : tableBody.value.splice(indexStoreToDelete, 1);
+      indexStoreToDelete.value === -1 ? tableBody.value.push(store) : tableBody.value.splice(indexStoreToDelete, 1);
       indexStoreToDelete.value = -1
     }
 
@@ -158,7 +158,9 @@ export default {
     return {
       addStore,
       deleteStore,
+      getStores,
       goToStore,
+      prepareErrorToast,
       search,
       storeList,
       storeToDelete,
