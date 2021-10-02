@@ -1,5 +1,6 @@
 <template>
-  <div class="bg-indigo-100">
+  <div class="h-full min-h-screen bg-indigo-100">
+    <AppBar v-if="!store.state.login"/>
     <router-view/>
     <Toast
       data-testid="toast"
@@ -17,6 +18,7 @@ import { useStore } from 'vuex';
 export default {
   name: 'App',
   components: {
+    AppBar: defineAsyncComponent(() => import('@/components/generics/AppBar')),
     Toast: defineAsyncComponent(() => import('@/components/generics/Toast'))
   },
   setup() {

@@ -4,7 +4,7 @@ import user from '@/store/modules/user.js'
 export default createStore({
   state: {
     accessToken: '',
-    login: '',
+    login: true,
     refreshToken: '',
     showAddStoreModal: false,
     showDeleteStoreModal: false,

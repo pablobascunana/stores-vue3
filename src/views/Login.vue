@@ -77,13 +77,11 @@ export default {
     const { t } = useI18n();
 
     async function login(user) {
-      if (user.userName && user.password) {
-        try {
-          let { data } = await UserApi.login(user);
-          saveDataInVuexAndGoToStore(data, user);
-        } catch (error) {
-          utils.prepareToastAndShowIt(`${t('login.messages.error')}`);
-        }
+      try {
+        let { data } = await UserApi.login(user);
+        saveDataInVuexAndGoToStore(data, user);
+      } catch (error) {
+        utils.prepareToastAndShowIt(`${t('login.messages.error')}`);
       }
     }
 

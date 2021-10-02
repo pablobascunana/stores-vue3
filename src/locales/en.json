@@ -26,6 +26,9 @@
       "exists": "already exists"
     }
   },
+  "appBar": {
+    "exitApp": "Close session"
+  },
   "stores": {
     "search": "Search",
     "nameHeader": "Name",
