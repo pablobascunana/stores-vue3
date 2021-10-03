@@ -1,5 +1,6 @@
-import { createStore } from 'vuex'
-import user from '@/store/modules/user.js'
+import { createStore } from 'vuex';
+import store from '@/store/modules/store.js';
+import user from '@/store/modules/user.js';
 
 export default createStore({
   state: {
@@ -30,9 +31,8 @@ export default createStore({
       state.refreshToken = token;
     }
   },
-  actions: {
-  },
   modules: {
+    store,
     user
   }
 });

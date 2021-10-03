@@ -67,6 +67,11 @@
       "error": "Ha ocurrido un error al eliminar la tienda. Por favor, inténtelo de nuevo."
     }
   },
+  "items": {
+    "messages": {
+      "error": "Ha ocurrido un error al obtener los items de la tienda. Por favor, inténtelo de nuevo."
+    }
+  },
   "generic": {
     "buttons": {
       "access": "Acceder",

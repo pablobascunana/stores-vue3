@@ -1,0 +1,17 @@
+@layer components {
+  .btn-fixed-bottom {
+    @apply fixed w-full bottom-0
+  }
+  .btn-position-bottom-right {
+    @apply absolute bottom-0 right-0
+  }
+  .btn-fixed-top {
+    @apply fixed w-full top-0 mt-16
+  }
+  .btn-position-top-right {
+    @apply absolute top-0 right-0
+  }
+  .btn-float {
+    @apply m-5 w-12 h-12 bg-indigo-600 rounded-full hover:bg-indigo-700 shadow-lg shadow transition ease-in duration-200 focus:outline-none
+  }
+}

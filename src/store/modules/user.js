@@ -13,9 +13,7 @@ const user = {
     setUserName(state, userName) {
       state.userName = userName;
     }
-  },
-  actions: {},
-  getters: {}
+  }
 }
 
 export default user;

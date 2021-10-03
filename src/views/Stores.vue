@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center min-h-screen">
+  <div class="flex items-center justify-center mt-16">
     <div class="col-span-12">
       <div class="overflow-auto lg:overflow-visible">
         <div class="flex justify-between items-center">
@@ -41,7 +41,7 @@
                 <td class="p-3 text-gray-600">{{ tableRow.email }}</td>
                 <td class="p-3 text-gray-600">{{ tableRow.cif }}</td>
                 <td class="p-3">
-                  <a href="#" class="text-gray-600 hover:text-gray-500 mr-2" @click="goToStore">
+                  <a href="#" class="text-gray-600 hover:text-gray-500 mr-2" @click.prevent="goToStore(tableRow.uuid)">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -72,6 +72,7 @@
 import AddStoreModal from "@/components/modals/AddStoreModal";
 import { computed, onMounted, ref } from 'vue';
 import DeleteStoreModal from "@/components/modals/DeleteStoreModal";
+import router from "@/router";
 import SearchBar from '@/components/generics/SearchBar';
 import StoresApi from "@/api/stores";
 import { useStore } from 'vuex';
@@ -131,8 +132,8 @@ export default {
       store.commit('setShowAddStoreModal', true);
     }
 
-    function goToStore() {
-      alert('store details')
+    function goToStore(storeUuid) {
+      router.push({ name: 'items', params: { "storeUuid": storeUuid } });
     }
 
     function deleteStore(index) {

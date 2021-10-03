@@ -59,6 +59,11 @@
       "error": "An error occurred while deleting of stores. Please, try again."
     }
   },
+  "items": {
+    "messages": {
+      "error": "An error occurred while obtaining the items of store. Please, try again."
+    }
+  },
   "generic": {
     "buttons": {
       "add": "Add",
