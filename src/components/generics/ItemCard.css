@@ -1,6 +1,6 @@
 @layer components {
   .grid-items {
-    @apply grid grid-cols-4 gap-4 gap-4 m-4
+    @apply grid grid-cols-4 gap-4 gap-4 p-4
   }
   .card-container {
     @apply relative bg-white shadow-md rounded-3xl p-2 mx-1 my-3

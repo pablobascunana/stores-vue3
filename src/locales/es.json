@@ -72,6 +72,13 @@
       "error": "Ha ocurrido un error al obtener los items de la tienda. Por favor, inténtelo de nuevo."
     }
   },
+  "deleteItem": {
+    "title": "Eliminar item",
+    "message": "¿Está seguro que desea eliminar el item",
+    "messages": {
+      "error": "Ha ocurrido un error al obtener el item. Por favor, inténtelo de nuevo."
+    }
+  },
   "generic": {
     "buttons": {
       "access": "Acceder",

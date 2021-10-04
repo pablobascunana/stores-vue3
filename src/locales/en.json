@@ -56,12 +56,19 @@
     "title": "Delete store",
     "message": "Are you sure you want to delete the store",
     "messages": {
-      "error": "An error occurred while deleting of stores. Please, try again."
+      "error": "An error occurred while deleting the selected store. Please, try again."
     }
   },
   "items": {
     "messages": {
       "error": "An error occurred while obtaining the items of store. Please, try again."
+    }
+  },
+  "deleteItem": {
+    "title": "Delete item",
+    "message": "Are you sure you want to delete the item",
+    "messages": {
+      "error": "An error occurred while deleting the selected item. Please, try again."
     }
   },
   "generic": {

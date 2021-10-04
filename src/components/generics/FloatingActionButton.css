@@ -6,7 +6,7 @@
     @apply absolute bottom-0 right-0
   }
   .btn-fixed-top {
-    @apply fixed w-full top-0 mt-16
+    @apply fixed w-full top-0 mt-16 z-10
   }
   .btn-position-top-right {
     @apply absolute top-0 right-0
