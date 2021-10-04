@@ -1,6 +1,6 @@
 @layer components {
   .btn-fixed-bottom {
-    @apply fixed w-full bottom-0
+    @apply fixed w-full bottom-0 z-10
   }
   .btn-position-bottom-right {
     @apply absolute bottom-0 right-0

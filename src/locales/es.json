@@ -72,6 +72,18 @@
       "error": "Ha ocurrido un error al obtener los items de la tienda. Por favor, inténtelo de nuevo."
     }
   },
+  "addItem": {
+    "title": "Complete los siguientes datos para añadir un nuevo item",
+    "price": "Precio *",
+    "description": "Descripción",
+    "imageURL": "URL de la imagen",
+    "placeholders": {
+      "name": "Introduzca el nombre del item",
+      "price": "Introduzca el precio del item",
+      "imageURL": "Introduza la URL de la imagen del item",
+      "description": "Introduzca la descripción del item"
+    }
+  },
   "deleteItem": {
     "title": "Eliminar item",
     "message": "¿Está seguro que desea eliminar el item",
@@ -94,7 +106,9 @@
       "maxLength": "La longitud máxima es",
       "invalidCif": "No es un CIF valido",
       "invalidEmail": "El correo electrónico no es válido",
-      "unmatchPasswords": "Las contraseñas no coinciden"
+      "unmatchPasswords": "Las contraseñas no coinciden",
+      "minPriceValue": "El precio minímo tiene que ser mayor que cero",
+      "noPriceValueError": "El precio tiene que ser un número"
     }
   }
 }

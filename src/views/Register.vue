@@ -76,7 +76,7 @@
 import { Form } from "vee-validate";
 import router from "@/router";
 import { registerSchema } from "@/helpers/validations";
-import TextInput from "@/components/generics/FormTextInput.vue";
+import TextInput from "@/components/generics/forms/TextInput";
 import { useI18n } from "vue-i18n";
 import UserApi from '@/api/user';
 import { utils } from "@/helpers/commons";

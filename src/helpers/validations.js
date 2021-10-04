@@ -30,6 +30,10 @@ export const addStoreSchema = Yup.object().shape({
   cif: Yup.string().matches(CIF_REGEX, t('generic.validations.invalidCif')).required(REQUIRED)
 });
 
-
-
-      
+export const addItemSchema = Yup.object().shape({
+  name: Yup.string().min(MIN_LENGTH_VALUE, MIN_MSG).max(MAX_LENGTH_VALUE, MAX_MSG).required(REQUIRED),
+  imageURL: Yup.string(),
+  description: Yup.string(),
+  price: Yup.number().typeError(t('generic.validations.noPriceValueError'))
+    .positive(t('generic.validations.minPriceValue')).required(REQUIRED)
+});

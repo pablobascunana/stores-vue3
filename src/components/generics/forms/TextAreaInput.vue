@@ -1,40 +1,36 @@
 <template>
-  <div class="TextInput" :class="{ 'has-error': !!errorMessage, 'success': meta.valid }">
+  <div class="TextArea" :class="{ 'has-error': !!errorMessage, 'success': meta.valid }">
     <label :for="name" class="form-label">{{ label }}</label>
-    <input
+    <textarea
       :name="name"
       :id="name"
       class="form-input"
       :class="{ 'form-input-error': !!errorMessage, 'form-input-success': meta.valid }"
-      :type="type"
       :value="inputValue"
-      :placeholder="placeholder"
-      :autocomplete="autocomplete"
+      :placeholder="$t('addItem.placeholders.description')"
       @input="handleChange"
       @blur="handleBlur"
-    />
+    > 
+    </textarea>
     <p class="help-message" v-show="errorMessage || meta.valid">
       {{ errorMessage }}
     </p>
   </div>
 </template>
-
 <script>
 import { useField } from "vee-validate";
 
 export default {
+  name: 'TextArea',
   props: {
-    type: { type: String, default: "text" },
     value: { type: String, default: "" },
     name: { type: String, required: true },
     label: { type: String, required: true },
     placeholder: { type: String, default: "" },
-    autocomplete: { type: String, default: "off" }
+    autocomplete: { type: String, default: "off" },
+    rows: { type: Number, default: 5 }
   },
   setup(props) {
-    // we don't provide any rules here because we are using form-level validation
-    // https://vee-validate.logaretm.com/v4/guide/validation#form-level-validation
-    // https://vee-validate.logaretm.com/v4/examples/custom-inputs
     const {
       value: inputValue,
       errorMessage,
@@ -52,12 +48,12 @@ export default {
       inputValue,
       meta,
     };
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
-.TextInput {
+.TextArea {
   position: relative;
   margin-bottom: calc(1em * 1.5);
   width: 100%;
@@ -71,41 +67,29 @@ export default {
   font-size: 14px;
 }
 
-.TextInput.has-error input {
+.TextArea.has-error input {
   background-color:  #FCA5A5;
   color: #B91C1C;
 }
 
-.TextInput.has-error input:focus {
+.TextArea.has-error input:focus {
   border-color: #B91C1C;
 }
 
-.TextInput.has-error .help-message {
+.TextArea.has-error .help-message {
   color: #B91C1C;
 }
 
-.TextInput.success input {
+.TextArea.success input {
   background-color: #6EE7B7;
   color: #047857;
 }
 
-.TextInput.success input:focus {
+.TextArea.success input:focus {
   border-color: #047857;
 }
 
-.TextInput.success .help-message {
+.TextArea.success .help-message {
   color: #047857;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }
 </style>

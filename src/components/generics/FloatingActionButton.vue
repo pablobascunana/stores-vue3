@@ -23,6 +23,7 @@
 <script>
 import { computed } from 'vue';
 import router from "@/router";
+import { useStore } from 'vuex';
 
 export default {
   name: "FloatingActionButton",
@@ -32,6 +33,7 @@ export default {
     iconPosition: { type: String, required: true }
   },
   setup(props) {
+    const store = useStore();
 
     const checkIconPosition = computed(() => {
       if (props.iconPosition === 'bottom-right') {
@@ -42,12 +44,12 @@ export default {
     });
 
     function addItem() {
-        alert('create new item');
-      }
+      store.commit('setShowAddItemModal', true);
+    }
 
-      function goToStore() {
-        router.push({ name: 'stores' });
-      }
+    function goToStore() {
+      router.push({ name: 'stores' });
+    }
 
     return {
       addItem,

@@ -1,41 +1,41 @@
 <template>
-  <div v-if="store.state.showAddStoreModal">
+  <div v-if="store.state.items.showAddItemModal">
     <div class="modal">
       <div class="modal-lg-bg">
-        <h3 class="text-center mb-10 text-xl text-gray-900">{{ $t('addStore.title') }}</h3>
-        <Form @submit="addStore" :validation-schema="addStoreSchema">
+        <h3 class="text-center mb-10 text-xl text-gray-900">{{ $t('addItem.title') }}</h3>
+        <Form @submit="addItem" :validation-schema="addItemSchema">
           <div class="grid grid-cols-12 gap-6">
             <div class="md:col-start-3 md:col-span-4 col-span-12">
               <TextInput
                 name="name"
                 class="form-input"
                 :label="$t('register.name')"
-                :placeholder="$t('addStore.placeholders.name')"
+                :placeholder="$t('addItem.placeholders.name')"
               />
             </div>
             <div class="md:col-span-4 col-span-12">
               <TextInput
-                name="email"
-                class="form-input"
-                :label="$t('register.email')"
-                :placeholder="$t('addStore.placeholders.email')"
-              />
-            </div>
-            <div class="md:col-start-3 md:col-span-4 col-span-12">
-              <TextInput
-                name="phone"
+                name="price"
                 type="number"
                 class="form-input"
-                :label="$t('addStore.phone')"
-                :placeholder="$t('addStore.placeholders.phone')"
+                :label="$t('addItem.price')"
+                :placeholder="$t('addItem.placeholders.price')"
               />
             </div>
-            <div class="md:col-span-4 col-span-12">
+            <div class="md:col-start-3 md:col-span-8 col-span-12">
               <TextInput
-                name="cif"
+                name="imageURL"
                 class="form-input"
-                :label="$t('addStore.cif')"
-                :placeholder="$t('addStore.placeholders.cif')"
+                :label="$t('addItem.imageURL')"
+                :placeholder="$t('addItem.placeholders.imageURL')"
+              />
+            </div>
+            <div class="md:col-start-3 md:col-span-8 col-span-12">
+              <TextAreaInput
+                name="description"
+                class="form-input"
+                :label="$t('addItem.description')"
+                :placeholder="$t('addItem.placeholders.description')"
               />
             </div>
           </div>
@@ -49,43 +49,47 @@
   </div>
 </template>
 <script>
-import { addStoreSchema } from "@/helpers/validations";
+import { addItemSchema } from "@/helpers/validations";
 import { Form } from "vee-validate";
-import StoresApi from "@/api/stores";
+import ItemsApi from "@/api/items";
+import TextAreaInput from "@/components/generics/forms/TextAreaInput.vue";
 import TextInput from "@/components/generics/forms/TextInput.vue";
 import { useStore } from 'vuex';
 import { useI18n } from "vue-i18n";
 import { utils } from "@/helpers/commons";
 
 export default {
-  name: "AddStore",
+  name: "AddItem",
   components: {
     Form,
+    TextAreaInput,
     TextInput
   },
-  emits: ['updateStoreList'],
+  props: {
+    storeUuid: { type: String, required: true }
+  },
+  emits: ['updateItemList'],
   setup(props, { emit }) {
     const store = useStore();
     const { t } = useI18n();
 
     function close() {
-      store.commit('setShowAddStoreModal', false);
+      store.commit('setShowAddItemModal', false);
     }
 
-    async function addStore(storeValue) {
-      storeValue.userUuid = store.state.user.userUuid
+    async function addItem(itemValue) {
       try {
-        let { data } = await StoresApi.add(storeValue);
-        emit('updateStoreList', data);
+        let { data } = await ItemsApi.add(props.storeUuid, itemValue);
+        emit('updateItemList', data);
         close();
       } catch(error) {
-        utils.prepareToastAndShowIt(`${t('stores.messages.error')}`);
+        utils.prepareToastAndShowIt(`${t('items.messages.error')}`);
       }
     }
 
     return {
-      addStore,
-      addStoreSchema,
+      addItem,
+      addItemSchema,
       close,
       store
     }

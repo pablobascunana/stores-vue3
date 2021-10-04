@@ -64,6 +64,18 @@
       "error": "An error occurred while obtaining the items of store. Please, try again."
     }
   },
+  "addItem": {
+    "title": "Complete the following information to add a new store",
+    "price": "Price *",
+    "description": "Description",
+    "imageURL": "Image URL",
+    "placeholders": {
+      "name": "Enter the name of the item",
+      "price": "Enter the price of the item",
+      "imageURL": "Enter the image URL of the item",
+      "description": "Enter the description of the item"
+    }
+  },
   "deleteItem": {
     "title": "Delete item",
     "message": "Are you sure you want to delete the item",
@@ -86,7 +98,9 @@
       "maxLength": "The maximum length is",
       "invalidCif": "Invalid CIF",
       "invalidEmail": "Email is invalid",
-      "unmatchPasswords": "Passwords do not match"
+      "unmatchPasswords": "Passwords do not match",
+      "minPriceValue": "The minimum price has to be greater than 0",
+      "noPriceValueError": "Amount must be a number"
     }
   }
 }
