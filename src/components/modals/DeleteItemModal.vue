@@ -35,9 +35,7 @@ export default {
 
     async function deleteItem() {
       try {
-        debugger
         await ItemApi.delete(props.storeUuid, props.itemToDelete.uuid);
-        debugger
         emit('updateItemList', props.itemToDelete);
         close();
       } catch(error) {

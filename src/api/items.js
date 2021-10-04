@@ -5,11 +5,11 @@ import { utils } from "@/helpers/commons";
 const t = i18n.global.t;
 
 export default {
-  items(storeUuid) {
+  async items(storeUuid) {
     try {
-      let { data } = axios.get(`${process.env.VUE_APP_BASE_URL}item/${storeUuid}`);
+      let { data } = await axios.get(`${process.env.VUE_APP_BASE_URL}item/${storeUuid}`);
       return data;
-    } catch (e) {
+    } catch (error) {
       utils.prepareToastAndShowIt(`${t('items.messages.error')}`);
     }
   },
