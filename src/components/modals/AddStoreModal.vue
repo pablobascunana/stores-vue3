@@ -76,18 +76,23 @@ export default {
       storeValue.userUuid = store.state.user.userUuid
       try {
         let { data } = await StoresApi.add(storeValue);
-        emit('updateStoreList', data);
-        close();
+        updateStore(data);
       } catch(error) {
         utils.prepareToastAndShowIt(`${t('stores.messages.error')}`);
       }
+    }
+
+    function updateStore(store) {
+      emit('updateStoreList', store);
+      close();
     }
 
     return {
       addStore,
       addStoreSchema,
       close,
-      store
+      store,
+      updateStore
     }
   }
 }

@@ -35,17 +35,22 @@ export default {
     async function deleteStore() {
       try {
         await StoresApi.delete(store.state.user.userUuid, props.storeToDelete.uuid);
-        emit('updateStoreList', props.storeToDelete);
-        close();
+        updateStore();
       } catch(error) {
         utils.prepareToastAndShowIt(`${t('deleteStore.messages.error')}`);
       }
     }
 
+    function updateStore() {
+      emit('updateStoreList', props.storeToDelete);
+      close();
+    }
+
     return {
       close,
       deleteStore,
-      store
+      store,
+      updateStore
     }
   }
 }

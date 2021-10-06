@@ -96,8 +96,16 @@ describe('Stores.vue', () => {
     await wrapperAddModal.vm.close();
   });
 
+  it('Call update store function of add store modal', async () => {
+    await wrapperAddModal.vm.updateStore();
+  });
+
   it('Call all function of delete store modal', async () => {
     await wrapperDeleteModal.vm.deleteStore();
     await wrapperDeleteModal.vm.close();
+  });
+
+  it('Call update store function of delete store modal', async () => {
+    await wrapperDeleteModal.vm.updateStore();
   });
 });
