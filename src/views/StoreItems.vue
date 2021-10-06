@@ -12,8 +12,7 @@
         :storeUuid="storeUuid"
         :item="item"
         :index="index"
-        @deleteItem="deleteItem"
-        @editItem="editItem"
+        @updateItem="updateItem"
       />
     </div>
   </div>
@@ -82,18 +81,11 @@ export default {
       }
     }
 
-    function editItem(index) {
-      isEdit.value = true;
-      indexItemToUpdate.value = index;
-      itemToUpdate.value = items.value[index];
-      store.commit('setShowEditItemModal', true);
-    }
-
-    function deleteItem(index) {
-      isEdit.value = false;
-      indexItemToUpdate.value = index;
-      itemToUpdate.value = items.value[index];
-      store.commit('setShowDeleteItemModal', true);
+    function updateItem(value) {
+      isEdit.value = value.edit;
+      indexItemToUpdate.value = value.index;
+      itemToUpdate.value = items.value[value.index];
+      isEdit.value ? store.commit('setShowEditItemModal', true) : store.commit('setShowDeleteItemModal', true);
     }
   
     function updateItemList(item) {
@@ -107,20 +99,15 @@ export default {
 
     onMounted(getItems);
 
-    return {
-      deleteItem,
-      editItem, 
+    return { 
       fabs,
       isEdit,
       items,
       indexItemToUpdate,
       itemToUpdate,
+      updateItem,
       updateItemList
     }
   }
 }
 </script>
-
-<style>
-  
-</style>

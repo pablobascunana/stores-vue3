@@ -72,7 +72,7 @@ describe('Stores.vue', () => {
 
   it('Call add store', async () => {
     await wrapper.vm.addStore();
-    expect(store.state.showAddStoreModal).toBe(true);
+    expect(store.state.stores.showAddStoreModal).toBe(true);
   });
 
   it('Call go to store', async () => {
@@ -86,7 +86,7 @@ describe('Stores.vue', () => {
 
   it('Call update store list to delete store', async () => {
     await wrapper.vm.deleteStore(0);
-    expect(store.state.showDeleteStoreModal).toBe(true);
+    expect(store.state.stores.showDeleteStoreModal).toBe(true);
     await wrapper.vm.updateStoreList(storeToAddOrDelete);
     expect(wrapper.vm.tableBody.length).toEqual(0);
   });

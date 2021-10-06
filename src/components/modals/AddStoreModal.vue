@@ -1,5 +1,5 @@
 <template>
-  <div v-if="store.state.showAddStoreModal">
+  <div v-if="store.state.stores.showAddStoreModal">
     <div class="modal">
       <div class="modal-lg-bg">
         <h3 class="text-center mb-10 text-xl text-gray-900">{{ $t('addStore.title') }}</h3>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="store.state.showDeleteStoreModal">
+  <div v-if="store.state.stores.showDeleteStoreModal">
     <div class="modal">
       <div class="modal-sm-bg">
         <h3 class="text-center mb-10 text-xl text-gray-900">{{ $t('deleteStore.title') }}</h3>
