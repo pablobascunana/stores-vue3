@@ -1,13 +1,13 @@
 <template>
-  <div v-if="store.state.items.showAddItemModal">
+  <div v-if="store.state.items.showEditItemModal">
     <div class="modal">
       <div class="modal-lg-bg">
-        <h3 class="text-center mb-10 text-xl text-gray-900">{{ $t('addItem.title') }}</h3>
-        <Form @submit="addItem" :validation-schema="itemSchema">
-          <AddOrEditItem />
+        <h3 class="text-center mb-10 text-xl text-gray-900">{{ $t('editItem.title') }}</h3>
+        <Form @submit="editItem" :validation-schema="itemSchema">
+          <AddOrEditItem :item="item" />
           <div class="text-right mt-5">
             <button class="btn-secondary" @click="close">{{ $t('generic.buttons.close') }}</button>
-            <button class="btn-primary">{{ $t('generic.buttons.add') }}</button>
+            <button class="btn-primary">{{ $t('generic.buttons.edit') }}</button>
           </div>
         </Form>
       </div>
@@ -15,8 +15,8 @@
   </div>
 </template>
 <script>
-import { itemSchema } from "@/helpers/validations";
 import AddOrEditItem from "@/components/generics/forms/AddOrEditItem";
+import { itemSchema } from "@/helpers/validations";
 import { Form } from "vee-validate";
 import ItemsApi from "@/api/items";
 import { useStore } from 'vuex';
@@ -30,7 +30,8 @@ export default {
     Form
   },
   props: {
-    storeUuid: { type: String, required: true }
+    storeUuid: { type: String, required: true },
+    item: { type: Object, default: () => {} }
   },
   emits: ['updateItemList'],
   setup(props, { emit }) {
@@ -38,21 +39,22 @@ export default {
     const { t } = useI18n();
 
     function close() {
-      store.commit('setShowAddItemModal', false);
+      store.commit('setShowEditItemModal', false);
     }
 
-    async function addItem(itemValue) {
+    async function editItem(itemValue) {
+      itemValue.uuid = props.item.uuid
       try {
-        let { data } = await ItemsApi.add(props.storeUuid, itemValue);
-        emit('updateItemList', data);
+        await ItemsApi.edit(props.storeUuid, itemValue);
+        emit('updateItemList', itemValue);
         close();
       } catch(error) {
-        utils.prepareToastAndShowIt(`${t('items.messages.error')}`);
+        utils.prepareToastAndShowIt(`${t('editItem.messages.error')}`);
       }
     }
 
     return {
-      addItem,
+      editItem,
       close,
       itemSchema,
       store

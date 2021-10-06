@@ -47,5 +47,5 @@ export default {
 
 <style>
 @import './index.css';
-@import './components/generics/forms/Inputs.css';
+@import './components/generics/inputs/Inputs.css';
 </style>

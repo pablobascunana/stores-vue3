@@ -73,7 +73,7 @@ import AddStoreModal from "@/components/modals/AddStoreModal";
 import { computed, onMounted, ref } from 'vue';
 import DeleteStoreModal from "@/components/modals/DeleteStoreModal";
 import router from "@/router";
-import SearchBar from '@/components/generics/SearchBar';
+import SearchBar from '@/components/generics/inputs/SearchBar';
 import StoresApi from "@/api/stores";
 import { useStore } from 'vuex';
 import { useI18n } from "vue-i18n";

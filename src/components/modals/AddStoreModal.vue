@@ -6,7 +6,7 @@
         <Form @submit="addStore" :validation-schema="addStoreSchema">
           <div class="grid grid-cols-12 gap-6">
             <div class="md:col-start-3 md:col-span-4 col-span-12">
-              <TextInput
+              <GenericInput
                 name="name"
                 class="form-input"
                 :label="$t('register.name')"
@@ -14,7 +14,7 @@
               />
             </div>
             <div class="md:col-span-4 col-span-12">
-              <TextInput
+              <GenericInput
                 name="email"
                 class="form-input"
                 :label="$t('register.email')"
@@ -22,7 +22,7 @@
               />
             </div>
             <div class="md:col-start-3 md:col-span-4 col-span-12">
-              <TextInput
+              <GenericInput
                 name="phone"
                 type="number"
                 class="form-input"
@@ -31,7 +31,7 @@
               />
             </div>
             <div class="md:col-span-4 col-span-12">
-              <TextInput
+              <GenericInput
                 name="cif"
                 class="form-input"
                 :label="$t('addStore.cif')"
@@ -52,7 +52,7 @@
 import { addStoreSchema } from "@/helpers/validations";
 import { Form } from "vee-validate";
 import StoresApi from "@/api/stores";
-import TextInput from "@/components/generics/forms/TextInput.vue";
+import GenericInput from "@/components/generics/inputs/Generic.vue";
 import { useStore } from 'vuex';
 import { useI18n } from "vue-i18n";
 import { utils } from "@/helpers/commons";
@@ -61,7 +61,7 @@ export default {
   name: "AddStore",
   components: {
     Form,
-    TextInput
+    GenericInput
   },
   emits: ['updateStoreList'],
   setup(props, { emit }) {

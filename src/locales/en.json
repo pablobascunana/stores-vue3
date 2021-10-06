@@ -65,7 +65,7 @@
     }
   },
   "addItem": {
-    "title": "Complete the following information to add a new store",
+    "title": "Complete the following information to add a new item",
     "price": "Price *",
     "description": "Description",
     "imageURL": "Image URL",
@@ -74,6 +74,12 @@
       "price": "Enter the price of the item",
       "imageURL": "Enter the image URL of the item",
       "description": "Enter the description of the item"
+    }
+  },
+  "editItem": {
+    "title": "Modify the following information to edit the item",
+    "messages": {
+      "error": "An error occurred while editing the item. Please, try again."
     }
   },
   "deleteItem": {
@@ -90,6 +96,7 @@
       "back": "Back",
       "close": "Close",
       "delete": "Delete",
+      "edit": "Edit",
       "register": "Sign up"
     },
     "validations": {
@@ -100,7 +107,8 @@
       "invalidEmail": "Email is invalid",
       "unmatchPasswords": "Passwords do not match",
       "minPriceValue": "The minimum price has to be greater than 0",
-      "noPriceValueError": "Amount must be a number"
+      "noPriceValueError": "Amount must be a number",
+      "invalidURL": "Invalid URL"
     }
   }
 }

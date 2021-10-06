@@ -1,5 +1,5 @@
 <template>
-  <div class="TextInput" :class="{ 'has-error': !!errorMessage, 'success': meta.valid }">
+  <div class="GenericInput" :class="{ 'has-error': !!errorMessage, 'success': meta.valid }">
     <label :for="name" class="form-label">{{ label }}</label>
     <input
       :name="name"
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style scoped>
-.TextInput {
+.GenericInput {
   position: relative;
   margin-bottom: calc(1em * 1.5);
   width: 100%;
@@ -72,29 +72,29 @@ export default {
   font-size: 14px;
 }
 
-.TextInput.has-error input {
+.GenericInput.has-error input {
   background-color:  #FCA5A5;
   color: #B91C1C;
 }
 
-.TextInput.has-error input:focus {
+.GenericInput.has-error input:focus {
   border-color: #B91C1C;
 }
 
-.TextInput.has-error .help-message {
+.GenericInput.has-error .help-message {
   color: #B91C1C;
 }
 
-.TextInput.success input {
+.GenericInput.success input {
   background-color: #6EE7B7;
   color: #047857;
 }
 
-.TextInput.success input:focus {
+.GenericInput.success input:focus {
   border-color: #047857;
 }
 
-.TextInput.success .help-message {
+.GenericInput.success .help-message {
   color: #047857;
 }
 

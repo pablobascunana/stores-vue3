@@ -84,6 +84,12 @@
       "description": "Introduzca la descripción del item"
     }
   },
+  "editItem": {
+    "title": "Modifique los siguientes datos para editar el item",
+    "messages": {
+      "error": "Ha ocurrido un error al editar el item. Por favor, inténtelo de nuevo."
+    }
+  },
   "deleteItem": {
     "title": "Eliminar item",
     "message": "¿Está seguro que desea eliminar el item",
@@ -98,6 +104,7 @@
       "back": "Volver",
       "close": "Cerrar",
       "delete": "Eliminar",
+      "edit": "Editar",
       "register": "Registrarse"
     },
     "validations": {
@@ -108,7 +115,8 @@
       "invalidEmail": "El correo electrónico no es válido",
       "unmatchPasswords": "Las contraseñas no coinciden",
       "minPriceValue": "El precio minímo tiene que ser mayor que cero",
-      "noPriceValueError": "El precio tiene que ser un número"
+      "noPriceValueError": "El precio tiene que ser un número",
+      "invalidURL": "La URL no es válida"
     }
   }
 }

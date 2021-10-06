@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="item-image">
-      <img class="image" :src="item.imageURL">
+      <img class="image" :src="item.imageURL" alt="item image">
     </div>
     <div class="item-name-price-container">
       <p class="name">{{ item.name }}</p>
@@ -35,11 +35,11 @@ export default {
   setup(props, { emit }) {
    
     function deleteItem() {
-      emit('deleteItem', props.index)
+      emit('deleteItem', props.index);
     }
 
     function editItem() {
-      alert('delete item');
+      emit('editItem', props.index);
     }
 
     return {

@@ -7,7 +7,7 @@
             <p class="pb-5 text-center">{{ $t('register.title') }}</p>
             <div class="grid grid-cols-12 gap-6">
               <div class="md:col-span-6 col-span-12">
-                <TextInput
+                <GenericInput
                   name="userName"
                   class="form-input"
                   :label="$t('register.userName')"
@@ -15,7 +15,7 @@
                 />
               </div>
               <div class="md:col-span-6 col-span-12">
-                <TextInput
+                <GenericInput
                   name="name"
                   class="form-input"
                   :label="$t('register.name')"
@@ -23,7 +23,7 @@
                 />
               </div>
               <div class="md:col-span-6 col-span-12">
-                <TextInput
+                <GenericInput
                   name="lastName"
                   class="form-input"
                   :label="$t('register.lastName')"
@@ -31,7 +31,7 @@
                 />
               </div>
               <div class="md:col-span-6 col-span-12">
-                <TextInput
+                <GenericInput
                   name="email"
                   class="form-input"
                   :label="$t('register.email')"
@@ -39,7 +39,7 @@
                 />
               </div>
               <div class="md:col-span-6 col-span-12">
-                <TextInput
+                <GenericInput
                   name="password"
                   type="password"
                   class="form-input"
@@ -48,7 +48,7 @@
                 />
               </div>
               <div class="md:col-span-6 col-span-12">
-                <TextInput
+                <GenericInput
                   name="repeteadPassword"
                   type="password"
                   class="form-input"
@@ -76,7 +76,7 @@
 import { Form } from "vee-validate";
 import router from "@/router";
 import { registerSchema } from "@/helpers/validations";
-import TextInput from "@/components/generics/forms/TextInput";
+import GenericInput from "@/components/generics/inputs/Generic";
 import { useI18n } from "vue-i18n";
 import UserApi from '@/api/user';
 import { utils } from "@/helpers/commons";
@@ -85,7 +85,7 @@ export default {
   name: 'Register',
   components: {
     Form,
-    TextInput
+    GenericInput
   },
   setup() {
     const { t } = useI18n();

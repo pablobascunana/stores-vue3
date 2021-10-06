@@ -3,7 +3,7 @@
     <div class="modal">
       <div class="modal-sm-bg">
         <h3 class="text-center mb-10 text-xl text-gray-900">{{ $t('deleteItem.title') }}</h3>
-        <p class="text-center text-gray-600">{{ $t('deleteItem.message') }} {{ itemToDelete.name }}?</p>
+        <p class="text-center text-gray-600">{{ $t('deleteItem.message') }} {{ item.name }}?</p>
         <div class="text-right mt-10">
           <button class="btn-secondary" @click="close">{{ $t('generic.buttons.close') }}</button>
           <button class="btn-primary" @click="deleteItem">{{ $t('generic.buttons.delete') }}</button>
@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import ItemApi from "@/api/items";
+import ItemsApi from "@/api/items";
 import { useI18n } from "vue-i18n";
 import { useStore } from 'vuex';
 import { utils } from "@/helpers/commons";
@@ -21,7 +21,7 @@ import { utils } from "@/helpers/commons";
 export default {
   name: "DeleteItem",
   props: {
-    itemToDelete: { type: Object, required: true, default: () => {} },
+    item: { type: Object, required: true, default: () => {} },
     storeUuid: { type: String, required: true }
   },
   emits: ['updateItemList'],
@@ -35,8 +35,8 @@ export default {
 
     async function deleteItem() {
       try {
-        await ItemApi.delete(props.storeUuid, props.itemToDelete.uuid);
-        emit('updateItemList', props.itemToDelete);
+        await ItemsApi.delete(props.storeUuid, props.item.uuid);
+        emit('updateItemList', props.item);
         close();
       } catch(error) {
         utils.prepareToastAndShowIt(`${t('deleteItem.messages.error')}`);

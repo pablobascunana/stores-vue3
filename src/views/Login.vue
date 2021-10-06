@@ -58,7 +58,7 @@
 </template>
 
 <script>
-import LoginInput from "@/components/generics/LoginInput";
+import LoginInput from "@/components/generics/inputs/Login";
 import { Form } from "vee-validate";
 import router from "@/router";
 import { useI18n } from "vue-i18n";

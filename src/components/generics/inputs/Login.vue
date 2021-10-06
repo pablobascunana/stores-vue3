@@ -44,5 +44,5 @@ export default {
 </script>
 
 <style>
-@import './LoginInput.css';
+@import './Login.css';
 </style>
