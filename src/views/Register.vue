@@ -97,14 +97,18 @@ export default {
     async function register(user) {
       try {
         await UserApi.register(user);
-        utils.prepareToastAndShowIt(
-          `${t('register.messages.success1')} ${user.userName} ${t('register.messages.success2')}`,
-          'bg-green-500'
-        );
-        back();
+        showToastAndBackToLogin(user);
       } catch (error) {
         utils.prepareToastAndShowIt(checkError(error, user));
       }
+    }
+
+    function showToastAndBackToLogin(user) {
+      utils.prepareToastAndShowIt(
+        `${t('register.messages.success1')} ${user.userName} ${t('register.messages.success2')}`,
+        'bg-green-500'
+      );
+      back();
     }
 
     function checkError({ response }, user) {
@@ -120,6 +124,7 @@ export default {
       back,
       checkError,
       register,
+      showToastAndBackToLogin,
       registerSchema
     }
   }

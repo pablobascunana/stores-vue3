@@ -2,7 +2,6 @@ import { shallowMount } from '@vue/test-utils';
 import router from '@/router/index';
 import store from '@/store/index';
 import i18n from '@/i18n';
-import { utils } from "@/helpers/commons";
 
 import Register from '@/views/Register';
 
@@ -27,17 +26,12 @@ describe('Register.vue', () => {
     });
   });
 
-  it('Call back button', async () => {
-    await wrapper.vm.back();
-  });
-
   it('Call register button', async () => {
     await wrapper.vm.register(user);
   });
 
-  it('Call prepare success toast', async () => {
-    await utils.prepareToastAndShowIt('Toast message', 'bg-green-500');
-    expect(store.state.showToast).toBe(false);
+  it('Call show toast and back to login', async () => {
+    wrapper.vm.showToastAndBackToLogin(user);
   });
 
   it('Call check error', async () => {
