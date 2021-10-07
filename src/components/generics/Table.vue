@@ -54,11 +54,11 @@ export default {
   setup(props, { emit }) {
 
     function deleteAction(row, index) {
-      emit('deleteStore', { row: row, index: index });
+      emit('delete-store', { row: row, index: index });
     }
 
     function goToDetails(row, index) {
-      emit('goToDetails', { row: row, index: index });
+      emit('go-to-details', { row: row, index: index });
     }
 
     return {

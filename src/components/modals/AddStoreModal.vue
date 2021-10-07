@@ -83,7 +83,7 @@ export default {
     }
 
     function updateStore(store) {
-      emit('updateStoreList', store);
+      emit('update-store-list', store);
       close();
     }
 

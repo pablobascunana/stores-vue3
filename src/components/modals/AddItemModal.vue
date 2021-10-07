@@ -51,7 +51,7 @@ export default {
     }
 
     function updateItemListAndCloseModal(item) {
-      emit('updateItemList', item);
+      emit('update-item-list', item);
       close();
     }
 

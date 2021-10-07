@@ -42,7 +42,7 @@ export default {
     }
 
     function updateStore() {
-      emit('updateStoreList', props.storeToDelete);
+      emit('update-store-list', props.storeToDelete);
       close();
     }
 

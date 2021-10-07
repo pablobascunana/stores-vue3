@@ -35,7 +35,7 @@ export default {
   setup(props, { emit }) {
    
     function updateItem(isEdit) {
-      emit('updateItem', { index: props.index, edit: isEdit });
+      emit('update-item', { index: props.index, edit: isEdit });
     }
 
     return {

@@ -27,7 +27,7 @@ export default {
     const search = ref('');
 
     function updateSearch() {
-      emit('updateSearch', search);
+      emit('update-search', search);
     }
 
     return {

@@ -43,7 +43,7 @@ export default {
     }
 
     function updateItemListAndCloseModal() {
-      emit('updateItemList', props.item);
+      emit('update-item-list', props.item);
       close();
     }
 
