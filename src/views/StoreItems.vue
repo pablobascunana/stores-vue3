@@ -101,9 +101,7 @@ export default {
 
     return { 
       fabs,
-      isEdit,
       items,
-      indexItemToUpdate,
       itemToUpdate,
       updateItem,
       updateItemList

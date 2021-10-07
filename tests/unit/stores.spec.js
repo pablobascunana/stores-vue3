@@ -27,6 +27,8 @@ const storeToAddOrDelete = {
 
 const searchValue = { value: 'Tie' }
 
+let valueGoToStore = { row: { uuid: '0eb192a7-1834-4a60-9c2e-5a26acdd198f' } }
+
 describe('Stores.vue', () => {
   let wrapper, wrapperAddModal, wrapperDeleteModal;
   beforeEach(() => {
@@ -52,12 +54,12 @@ describe('Stores.vue', () => {
 
   it('Call get stores and do stores filters', async () => {
     await wrapper.vm.getStores();
-    wrapper.vm.tableBody = storeList;
-    expect(wrapper.vm.storeList.length).toEqual(1);
+    wrapper.vm.storeList = storeList;
+    expect(wrapper.vm.tableBody.length).toEqual(1);
     wrapper.vm.search = searchValue.value;
-    expect(wrapper.vm.storeList.length).toEqual(1);
+    expect(wrapper.vm.tableBody.length).toEqual(1);
     wrapper.vm.search = `${searchValue.value}j`;
-    expect(wrapper.vm.storeList.length).toEqual(0);
+    expect(wrapper.vm.tableBody.length).toEqual(0);
   });
 
   it('Call prepare error toast', async () => {
@@ -76,7 +78,7 @@ describe('Stores.vue', () => {
   });
 
   it('Call go to store', async () => {
-    await wrapper.vm.goToStore();
+    await wrapper.vm.goToStore(valueGoToStore);
   });
 
   it('Call update store list to add store', async () => {
