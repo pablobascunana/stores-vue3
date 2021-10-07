@@ -44,18 +44,23 @@ export default {
     async function addItem(itemValue) {
       try {
         let { data } = await ItemsApi.add(props.storeUuid, itemValue);
-        emit('updateItemList', data);
-        close();
+        updateItemListAndCloseModal(data);
       } catch(error) {
         utils.prepareToastAndShowIt(`${t('items.messages.error')}`);
       }
+    }
+
+    function updateItemListAndCloseModal(item) {
+      emit('updateItemList', item);
+      close();
     }
 
     return {
       addItem,
       close,
       itemSchema,
-      store
+      store,
+      updateItemListAndCloseModal
     }
   }
 }

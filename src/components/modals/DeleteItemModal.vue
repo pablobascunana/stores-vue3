@@ -36,17 +36,22 @@ export default {
     async function deleteItem() {
       try {
         await ItemsApi.delete(props.storeUuid, props.item.uuid);
-        emit('updateItemList', props.item);
-        close();
+        updateItemListAndCloseModal();
       } catch(error) {
         utils.prepareToastAndShowIt(`${t('deleteItem.messages.error')}`);
       }
     }
 
+    function updateItemListAndCloseModal() {
+      emit('updateItemList', props.item);
+      close();
+    }
+
     return {
       close,
       deleteItem,
-      store
+      store,
+      updateItemListAndCloseModal
     }
   }
 }

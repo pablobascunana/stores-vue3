@@ -5,6 +5,7 @@ import i18n from '@/i18n';
 import { utils } from "@/helpers/commons";
 
 import Stores from '@/views/Stores';
+import Table from '@/components/generics/Table';
 import AddStoreModal from '@/components/modals/AddStoreModal';
 import DeleteStoreModal from '@/components/modals/DeleteStoreModal';
 
@@ -27,12 +28,17 @@ const storeToAddOrDelete = {
 
 const searchValue = { value: 'Tie' }
 
-let valueGoToStore = { row: { uuid: '0eb192a7-1834-4a60-9c2e-5a26acdd198f' } }
+const valueGoToStore = { row: { uuid: '0eb192a7-1834-4a60-9c2e-5a26acdd198f' } }
 
 describe('Stores.vue', () => {
-  let wrapper, wrapperAddModal, wrapperDeleteModal;
+  let wrapper, wrapperTable, wrapperAddModal, wrapperDeleteModal;
   beforeEach(() => {
     wrapper = shallowMount(Stores, {
+      global: {
+        plugins: [i18n, store]
+      }
+    });
+    wrapperTable = shallowMount(Table, {
       global: {
         plugins: [i18n, store]
       }
@@ -91,6 +97,14 @@ describe('Stores.vue', () => {
     expect(store.state.stores.showDeleteStoreModal).toBe(true);
     await wrapper.vm.updateStoreList(storeToAddOrDelete);
     expect(wrapper.vm.tableBody.length).toEqual(0);
+  });
+
+  it('Call go to details of table component', async () => {
+    await wrapperTable.vm.goToDetails(storeList[0], 0);
+  });
+
+  it('Call delete action of table component', async () => {
+    await wrapperTable.vm.deleteAction(storeList[0], 0);
   });
 
   it('Call all function of add store modal', async () => {

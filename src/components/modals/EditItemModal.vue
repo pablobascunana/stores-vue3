@@ -46,18 +46,23 @@ export default {
       itemValue.uuid = props.item.uuid
       try {
         await ItemsApi.edit(props.storeUuid, itemValue);
-        emit('updateItemList', itemValue);
-        close();
+        updateItemListAndCloseModal(itemValue);
       } catch(error) {
         utils.prepareToastAndShowIt(`${t('editItem.messages.error')}`);
       }
+    }
+
+    function updateItemListAndCloseModal(item) {
+      emit('updateItemList', item);
+      close();
     }
 
     return {
       editItem,
       close,
       itemSchema,
-      store
+      store,
+      updateItemListAndCloseModal
     }
   }
 }
