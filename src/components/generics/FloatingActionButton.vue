@@ -59,6 +59,7 @@ export default {
   }
 }
 </script>
+
 <style>
 @import './FloatingActionButton.css';
 </style>

@@ -1,9 +1,19 @@
-const user = {
-  state: {
+function initialStoresState() {
+  return {
     showAddStoreModal: false,
     showDeleteStoreModal: false,
-  },
+  }
+}
+
+const stores = {
+  state: initialStoresState(),
   mutations: {
+    resetStoresStore(state) {
+      const initState = initialStoresState();
+      Object.keys(initState).forEach(key => {
+        state[key] = initState[key];
+      });
+    },
     setShowAddStoreModal(state, visible) {
       state.showAddStoreModal = visible;
     },
@@ -13,4 +23,4 @@ const user = {
   }
 }
 
-export default user;
+export default stores;
