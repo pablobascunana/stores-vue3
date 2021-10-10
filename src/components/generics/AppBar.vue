@@ -4,17 +4,17 @@
       <div class="position-items">
         <div class="position-logo">
           <div class="flex-shrink-0 flex">
-            <img class="block h-8 w-auto" src="@/assets/logo.svg" alt="Workflow">
+            <img id="logo" class="block h-8 w-auto" src="@/assets/logo.svg" alt="Workflow">
           </div>
         </div>
-        <p class="text-gray-800">{{ store.state.user.userName }}</p>
+        <p id="appBarTitle" class="text-gray-800">{{ store.state.user.userName }}</p>
         <div class="position-user-icon">
           <div class="ml-3 relative">
-            <button @click="dropDownVisible" type="button" class="btn-user-icon" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+            <button id="userIcon" @click="dropDownVisible" type="button" class="btn-user-icon" aria-expanded="false" aria-haspopup="true">
               <img class="h-8 w-8 rounded-full" src="https://i.pravatar.cc/300" alt="avatar">
             </button>
             <div v-if="isDropDownVisible" class="dropdown-menu" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-              <button @click="logout" class="btn-dropdown-menu" id="user-menu-item">{{ $t('appBar.exitApp') }}</button>
+              <button @click="logout" class="btn-dropdown-menu" id="logout">{{ $t('appBar.exitApp') }}</button>
             </div>
           </div>
         </div>

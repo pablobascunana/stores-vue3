@@ -18,3 +18,6 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+import './tasks/commons'
+import './tasks/login'
+import './tasks/register'

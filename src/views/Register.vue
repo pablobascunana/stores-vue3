@@ -59,11 +59,17 @@
             </div>
           </div>
           <div class="px-4 py-3 bg-white text-right sm:px-6">
-            <button class="btn-secondary" @click="back">
-              {{ $t('generic.buttons.back') }}
+            <button
+              id="back"
+              class="btn-secondary"
+              @click="back"
+              >{{ $t('generic.buttons.back') }}
             </button>
-            <button type="submit" class="btn-primary">
-              {{ $t('generic.buttons.register') }}
+            <button
+              id="register"
+              type="submit"
+              class="btn-primary"
+              >{{ $t('generic.buttons.register') }}
             </button>
           </div>
         </div>
