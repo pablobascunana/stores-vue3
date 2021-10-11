@@ -40,8 +40,8 @@
             </div>
           </div>
           <div class="text-right mt-5">
-            <button class="btn-secondary" @click="close">{{ $t('generic.buttons.close') }}</button>
-            <button class="btn-primary">{{ $t('generic.buttons.add') }}</button>
+            <button id="close" class="btn-secondary" @click="close">{{ $t('generic.buttons.close') }}</button>
+            <button id="addStoreModal" class="btn-primary">{{ $t('generic.buttons.add') }}</button>
           </div>
         </Form>
       </div>
@@ -78,7 +78,7 @@ export default {
         let { data } = await StoresApi.add(storeValue);
         updateStore(data);
       } catch(error) {
-        utils.prepareToastAndShowIt(`${t('stores.messages.error')}`);
+        utils.prepareToastAndShowIt(`${t('addStore.messages.error')}`);
       }
     }
 

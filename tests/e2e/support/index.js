@@ -14,10 +14,11 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-import './tasks/commons'
-import './tasks/login'
-import './tasks/register'
+import './tasks/commons';
+import './tasks/login';
+import './tasks/register';
+import './tasks/stores';

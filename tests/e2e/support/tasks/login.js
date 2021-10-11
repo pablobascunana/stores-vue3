@@ -6,7 +6,6 @@ Cypress.Commands.add("fillLoginFormAndDoLogin", (user) => {
   cy.clickButton(login.BUTTON_LOGIN);
 });
 
-
 Cypress.Commands.add("logout", () => {
   cy.clickButton(login.IMG_USER_LOGO);
   cy.clickButton(login.BUTTON_LOGOUT);

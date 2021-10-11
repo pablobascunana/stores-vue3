@@ -1,6 +1,8 @@
 <template>
   <div class="relative md:w-3/6">
-    <input type="search"
+    <input
+      id="search"
+      type="search"
       class="form-input-search"
       v-model="search"
       :placeholder="$t('stores.search')"

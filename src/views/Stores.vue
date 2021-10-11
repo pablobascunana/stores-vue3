@@ -10,7 +10,7 @@
           </div>
           <div class="shadow rounded-lg flex">
             <div class="relative">
-              <button class="btn-primary" @click="addStore">
+              <button id="addStore" class="btn-primary" @click="addStore">
                 {{ $t('stores.addStore') }}
               </button>
             </div>
