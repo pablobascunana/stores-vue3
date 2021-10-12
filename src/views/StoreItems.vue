@@ -2,6 +2,7 @@
 <div>
   <FloatButton
     v-for="(fab, index) in fabs" :key="index"
+    :id="index === 0 ? 'backToStores' : 'addItem'"
     :firstNode="fab.first"
     :secondNode="fab.second"
     :iconPosition="fab.icon"

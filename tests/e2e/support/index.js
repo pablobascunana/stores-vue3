@@ -21,4 +21,5 @@ import './commands';
 import './tasks/commons';
 import './tasks/login';
 import './tasks/register';
+import './tasks/storeItems';
 import './tasks/stores';

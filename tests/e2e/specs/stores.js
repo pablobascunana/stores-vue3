@@ -54,7 +54,6 @@ describe('Stores List Test', () => {
     });
     cy.clickButton(stores.BUTTON_MODAL_ADD_STORE);
     cy.wait('@addStore');
-    
   });
 
   it('Filter store list', () => {

@@ -1,4 +1,4 @@
-export const  FIXTURE_REGISTER_STORES_DATA = 'stores.json';
+export const FIXTURE_REGISTER_STORES_DATA = 'stores.json';
 
 export const URL_STORE = '/api/v1/store/*'
 
@@ -9,7 +9,7 @@ export const TABLE_TH = 'th';
 export const TABLE_TD = 'td';
 
 export const BUTTON_ADD_STORE = '#addStore';
-
+export const BUTTON_STORE_DETAILS = '#storeDetails0';
 export const BUTTON_DELETE_STORE = '#deleteStore0';
 
 // Search bar

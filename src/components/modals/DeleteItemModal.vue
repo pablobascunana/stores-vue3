@@ -5,8 +5,8 @@
         <h3 class="text-center mb-10 text-xl text-gray-900">{{ $t('deleteItem.title') }}</h3>
         <p class="text-center text-gray-600">{{ $t('deleteItem.message') }} {{ item.name }}?</p>
         <div class="text-right mt-10">
-          <button class="btn-secondary" @click="close">{{ $t('generic.buttons.close') }}</button>
-          <button class="btn-primary" @click="deleteItem">{{ $t('generic.buttons.delete') }}</button>
+          <button id="close" class="btn-secondary" @click="close">{{ $t('generic.buttons.close') }}</button>
+          <button id="deleteItemModal" class="btn-primary" @click="deleteItem">{{ $t('generic.buttons.delete') }}</button>
         </div>
       </div>
     </div>

@@ -6,8 +6,8 @@
         <Form @submit="addItem" :validation-schema="itemSchema">
           <AddOrEditItem />
           <div class="text-right mt-5">
-            <button class="btn-secondary" @click="close">{{ $t('generic.buttons.close') }}</button>
-            <button class="btn-primary">{{ $t('generic.buttons.add') }}</button>
+            <button id="close" class="btn-secondary" @click="close">{{ $t('generic.buttons.close') }}</button>
+            <button id="addItemModal" class="btn-primary">{{ $t('generic.buttons.add') }}</button>
           </div>
         </Form>
       </div>
