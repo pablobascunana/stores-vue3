@@ -41,7 +41,7 @@ export default {
 
     function logout() {
       dropDownVisible();
-      store.commit('isLogin', true);
+      store.commit('resetStore');
       router.push({ name: 'login'});
     }
 
