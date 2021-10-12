@@ -1,0 +1,31 @@
+@layer components {
+  .grid-items {
+    @apply grid grid-cols-4 gap-4 gap-4 p-4
+  }
+  .card-container {
+    @apply relative bg-white shadow-md rounded-3xl p-2 mx-1 my-3
+  }
+  .item-image {
+    @apply overflow-x-hidden rounded-xl relative
+  }
+  .image {
+    @apply h-40 rounded-2xl w-full object-cover
+  }
+  .item-name-price-container {
+    @apply mt-4 pl-2 mb-2 flex justify-between
+  }
+  .name {
+    @apply text-lg font-semibold text-gray-900 mb-0
+  }
+  .price {
+    @apply text-base text-gray-800 mr-2
+  }
+  .item-description-container {
+    @apply mt-4 pl-2 mb-2 flex justify-between
+  }
+  .description {
+    @apply text-base text-gray-800
+  }
+}
+
+

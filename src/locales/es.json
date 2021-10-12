@@ -1,0 +1,125 @@
+{
+  "login": {
+    "signInMessage": "Inicia sesión en tu cuenta",
+    "or": "O",
+    "signUpMessage": "Regístrate",
+    "userName": "Nombre de usuario",
+    "password": "Contraseña",
+    "messages": {
+      "error": "Credenciales incorrectas"
+    }
+  },
+  "register": {
+    "title": "Registro de usuario",
+    "userName": "Nombre de usuario *",
+    "name": "Nombre *",
+    "lastName": "Apellidos *",
+    "email": "Correo electrónico *",
+    "password": "Contraseña *",
+    "repeteadPassword": "Repita la contraseña *",
+    "placeholders": {
+      "userName": "Introduzca su nombre de usuario",
+      "name": "Introduzca su nombre",
+      "lastName": "Introduzca su apellido",
+      "email": "Introduzca su correo electrónico",
+      "password": "Introduzca su contraseña",
+      "repeteadPassword": "Repita su contraseña"
+    },
+    "messages": {
+      "success1": "El usuario",
+      "success2": "ha sido creado",
+      "error": "Ha ocurrido un error al registrar al usuario",
+      "userNameError": "El nombre de usuario",
+      "emailError": "El correo electrónico",
+      "exists": "ya existe"
+    }
+  },
+  "appBar": {
+    "exitApp": "Cerrar sesión"
+  },
+  "stores": {
+    "search": "Buscar",
+    "nameHeader": "Nombre",
+    "phoneHeader": "Teléfono",
+    "emailHeader": "Email",
+    "cifHeader": "CIF",
+    "actionsHeader": "Acciones",
+    "addStore": "Añadir tienda",
+    "messages": {
+      "error": "Ha ocurrido un error al obtener el listado de tiendas. Por favor, inténtelo de nuevo."
+    }
+  },
+  "addStore": {
+    "title": "Complete los siguientes datos para añadir una nueva tienda",
+    "phone": "Teléfono *",
+    "cif": "CIF *",
+    "placeholders": {
+      "name": "Introduzca el nombre de la tienda",
+      "email": "Introduzca el correo electrónico de la tienda",
+      "phone": "Introduzca el teléfono de la tienda",
+      "cif": "Introduzca el CIF de la tienda"
+    },
+    "messages": {
+      "error": "Ha ocurrido un error al añadir la tienda. Por favor, inténtelo de nuevo."
+    }
+  },
+  "deleteStore" : {
+    "title": "Eliminar tienda",
+    "message": "¿Está seguro que desea eliminar la tienda",
+    "messages": {
+      "error": "Ha ocurrido un error al eliminar la tienda. Por favor, inténtelo de nuevo."
+    }
+  },
+  "items": {
+    "messages": {
+      "error": "Ha ocurrido un error al obtener los items de la tienda. Por favor, inténtelo de nuevo."
+    }
+  },
+  "addItem": {
+    "title": "Complete los siguientes datos para añadir un nuevo item",
+    "price": "Precio *",
+    "description": "Descripción",
+    "imageURL": "URL de la imagen",
+    "placeholders": {
+      "name": "Introduzca el nombre del item",
+      "price": "Introduzca el precio del item",
+      "imageURL": "Introduza la URL de la imagen del item",
+      "description": "Introduzca la descripción del item"
+    }
+  },
+  "editItem": {
+    "title": "Modifique los siguientes datos para editar el item",
+    "messages": {
+      "error": "Ha ocurrido un error al editar el item. Por favor, inténtelo de nuevo."
+    }
+  },
+  "deleteItem": {
+    "title": "Eliminar item",
+    "message": "¿Está seguro que desea eliminar el item",
+    "messages": {
+      "error": "Ha ocurrido un error al obtener el item. Por favor, inténtelo de nuevo."
+    }
+  },
+  "generic": {
+    "buttons": {
+      "access": "Acceder",
+      "add": "Añadir",
+      "back": "Volver",
+      "close": "Cerrar",
+      "delete": "Eliminar",
+      "edit": "Editar",
+      "register": "Registrarse"
+    },
+    "validations": {
+      "required": "Este campo es obligatorio",
+      "minLength": "La longitud mínima es",
+      "maxLength": "La longitud máxima es",
+      "invalidCif": "No es un CIF valido",
+      "invalidEmail": "El correo electrónico no es válido",
+      "unmatchPasswords": "Las contraseñas no coinciden",
+      "minPriceValue": "El precio minímo tiene que ser mayor que cero",
+      "noPriceValueError": "El precio tiene que ser un número",
+      "invalidURL": "La URL no es válida"
+    }
+  }
+}

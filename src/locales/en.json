@@ -1,0 +1,114 @@
+{
+  "login": {
+    "signInMessage": "Sign in to your account",
+    "or": "Of",
+    "signUpMessage": "Sign up",
+    "userName": "Username",
+    "password": "Password",
+    "messages": {
+      "error": "Invalid credentials"
+    }
+  },
+  "register": {
+    "title": "Sign in",
+    "userName": "Username *",
+    "name": "Name *",
+    "lastName": "Lastname *",
+    "email": "Email *",
+    "password": "Password *",
+    "repeteadPassword": "Repeat password *",
+    "messages": {
+      "success1": "The user",
+      "success2": "has been created",
+      "error": "An error occurred while registering the user",
+      "userNameError": "The username",
+      "emailError": "The email",
+      "exists": "already exists"
+    }
+  },
+  "appBar": {
+    "exitApp": "Close session"
+  },
+  "stores": {
+    "search": "Search",
+    "nameHeader": "Name",
+    "phoneHeader": "Phone",
+    "emailHeader": "Email",
+    "cifHeader": "CIF",
+    "actionsHeader": "Actions",
+    "addStore": "Add store",
+    "messages": {
+      "error": "An error occurred while obtaining the list of stores. Please, try again."
+    }
+  },
+  "addStore": {
+    "title": "Complete the following information to add a new store",
+    "phone": "Phone *",
+    "cif": "CIF *",
+    "placeholders": {
+      "name": "Enter the name of the store",
+      "email": "Enter the email of the store",
+      "phone": "Enter the phone of the store",
+      "cif": "Enter the CIF of the store"
+    }
+  },
+  "deleteStore" : {
+    "title": "Delete store",
+    "message": "Are you sure you want to delete the store",
+    "messages": {
+      "error": "An error occurred while deleting the selected store. Please, try again."
+    }
+  },
+  "items": {
+    "messages": {
+      "error": "An error occurred while obtaining the items of store. Please, try again."
+    }
+  },
+  "addItem": {
+    "title": "Complete the following information to add a new item",
+    "price": "Price *",
+    "description": "Description",
+    "imageURL": "Image URL",
+    "placeholders": {
+      "name": "Enter the name of the item",
+      "price": "Enter the price of the item",
+      "imageURL": "Enter the image URL of the item",
+      "description": "Enter the description of the item"
+    }
+  },
+  "editItem": {
+    "title": "Modify the following information to edit the item",
+    "messages": {
+      "error": "An error occurred while editing the item. Please, try again."
+    }
+  },
+  "deleteItem": {
+    "title": "Delete item",
+    "message": "Are you sure you want to delete the item",
+    "messages": {
+      "error": "An error occurred while deleting the selected item. Please, try again."
+    }
+  },
+  "generic": {
+    "buttons": {
+      "add": "Add",
+      "access": "Sign in",
+      "back": "Back",
+      "close": "Close",
+      "delete": "Delete",
+      "edit": "Edit",
+      "register": "Sign up"
+    },
+    "validations": {
+      "required": "This field is required",
+      "minLength": "The minimum length is",
+      "maxLength": "The maximum length is",
+      "invalidCif": "Invalid CIF",
+      "invalidEmail": "Email is invalid",
+      "unmatchPasswords": "Passwords do not match",
+      "minPriceValue": "The minimum price has to be greater than 0",
+      "noPriceValueError": "Amount must be a number",
+      "invalidURL": "Invalid URL"
+    }
+  }
+}
