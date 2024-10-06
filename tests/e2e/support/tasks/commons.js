@@ -14,6 +14,7 @@ Cypress.Commands.add("checkElementHasClass", (id, classToCheck) => {
 Cypress.Commands.add("writeInput", (id, text) => {
   cy.get(id).clear().type(text);
 });
+
 Cypress.Commands.add("clearInput", (id) => {
   cy.get(id).clear();
 });
